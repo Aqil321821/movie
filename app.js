@@ -164,7 +164,7 @@ for(var key in movies[actor.value]){
 }
   
 /// FILTER SEARCHH
-
+/*
 function filterMovie(){
     var movieData = movies[actor.value][brand.value]
     console.log(movies)
@@ -183,7 +183,39 @@ function filterMovie(){
     
     `
 
+}*/
+//updated function
+function filterMovie() {
+ 
+  var selectedActor = actor.value;
+  if (selectedActor === "") {
+    
+    main.innerHTML = "";
+  } else {
+   
+    var actorMovies = movies[selectedActor];
+
+ 
+    main.innerHTML = "";
+    for (var movieKey in actorMovies) {
+      var movieData = actorMovies[movieKey];
+      main.innerHTML += `
+        <div class="col">
+          <div class="card">
+            <img src="${movieData.img}" class="card-img-top my-img" alt="...">
+            <div class="card-body my-card">
+              <h5 class="card-title">${movieData.name}</h5>
+              <p class="card-text">${movieData.genere}</p>
+              <h6 class="card-text">${movieData.year}</h6>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  }
 }
+
+
 
 // FILTER REMOVE
 
